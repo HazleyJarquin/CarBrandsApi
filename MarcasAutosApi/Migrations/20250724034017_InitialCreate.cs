@@ -7,7 +7,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MarcasAutosApi.Migrations
 {
+
     /// <inheritdoc />
+  
     public partial class InitialCreate : Migration
     {
         /// <inheritdoc />

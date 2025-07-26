@@ -1,9 +1,11 @@
-﻿using MarcasAutosApi.Entities;
+﻿using MarcasAutosApi.Dtos;
+using MarcasAutosApi.Entities;
 
 namespace MarcasAutosApi.Services.Interfaces
 {
     public interface ICarBrandService
     {
-        Task<IEnumerable<CarBrand>> GetCarBrandsAsync();
+        Task<IEnumerable<CarBrandDto>> GetCarBrandsAsync();
+        Task AddAsync(CarBrandDto dto);
     }
 }

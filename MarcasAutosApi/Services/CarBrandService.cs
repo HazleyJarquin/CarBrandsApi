@@ -1,21 +1,39 @@
-﻿using MarcasAutosApi.Entities;
+﻿using AutoMapper;
+using FluentValidation;
+using MarcasAutosApi.Dtos;
+using MarcasAutosApi.Entities;
 using MarcasAutosApi.Repositories.Interfaces;
 using MarcasAutosApi.Services.Interfaces;
 
-namespace MarcasAutosApi.Services
+public class CarBrandService : ICarBrandService
 {
-    public class CarBrandService : ICarBrandService
+    private readonly ICarBrandRepository _repo;
+    private readonly IValidator<CarBrandDto> _validator;
+    private readonly IMapper _mapper;
+
+    public CarBrandService(ICarBrandRepository repo, IValidator<CarBrandDto> validator, IMapper mapper)
     {
-        private readonly ICarBrandRepository _repo;
+        _repo = repo;
+        _validator = validator;
+        _mapper = mapper;
+    }
 
-        public CarBrandService(ICarBrandRepository repo)
+    public async Task<IEnumerable<CarBrandDto>> GetCarBrandsAsync()
+    {
+        var entities = await _repo.GetAllAsync();
+        return _mapper.Map<IEnumerable<CarBrandDto>>(entities);
+    }
+
+    public async Task AddAsync(CarBrandDto dto)
+    {
+        var validationResult = await _validator.ValidateAsync(dto);
+        if (!validationResult.IsValid)
         {
-            _repo = repo;
+            var errors = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+            throw new ArgumentException($"Error de validación: {errors}");
         }
 
-        public async Task<IEnumerable<CarBrand>> GetCarBrandsAsync()
-        {
-            return await _repo.GetAllAsync();
-        }
+        var entity = _mapper.Map<CarBrand>(dto);
+        await _repo.AddAsync(entity);
     }
 }

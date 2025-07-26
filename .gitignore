@@ -1,15 +1,36 @@
-# Visual Studio
+
 .vs/
 *.user
 *.suo
 
-# Build
+
 bin/
 obj/
 
-# Logs
+
 *.log
 
-# Settings
+
 appsettings*.json
 .env
+
+
+.vscode/
+
+
+TestResults/
+*.trx
+*.xml
+
+
+coverage/
+coverage-report/
+*.coverage
+*.coveragexml
+*.lcov
+
+
+*.Generated.cs
+
+
+secrets.json

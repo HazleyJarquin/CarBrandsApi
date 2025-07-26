@@ -1,4 +1,5 @@
 ﻿using MarcasAutosApi.Entities;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MarcasAutosApi.Repositories.Interfaces
 {
@@ -6,5 +7,7 @@ namespace MarcasAutosApi.Repositories.Interfaces
     {
 
         Task<IEnumerable<CarBrand>> GetAllAsync();
+        Task AddAsync(CarBrand entity);
+        Task<bool> ExistsByNameAsync(string name);
     }
 }
