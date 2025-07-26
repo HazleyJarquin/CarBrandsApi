@@ -1,29 +1,30 @@
 <RunSettings>
-  <DataCollectionRunSettings>
-    <DataCollectors>
-      <DataCollector friendlyName="XPlat Code Coverage">
-        <Configuration>
-          <Format>cobertura</Format>
-
-          <ExcludeByFile>
-            ../MarcasAutosApi/Migrations/*
-            ../MarcasAutosApi/Entities/*
-            ../MarcasAutosApi/Dtos/*
-            ../MarcasAutosApi/Repositories/*
-            ../MarcasAutosApi/Data/*
-            ../MarcasAutosApi/Program.cs
-          </ExcludeByFile>
-
-          <Exclude>
-            [MarcasAutosApi]MarcasAutosApi.Migrations.*
-            [MarcasAutosApi]MarcasAutosApi.Entities.*
-            [MarcasAutosApi]MarcasAutosApi.Dtos.*
-            [MarcasAutosApi]MarcasAutosApi.Repositories.*
-            [MarcasAutosApi]MarcasAutosApi.Data.*
-            [MarcasAutosApi]Program
-          </Exclude>
-        </Configuration>
-      </DataCollector>
-    </DataCollectors>
-  </DataCollectionRunSettings>
+	<DataCollectionRunSettings>
+		<DataCollectors>
+			<DataCollector friendlyName="XPlat Code Coverage">
+				<Configuration>
+					<Format>cobertura</Format>
+					<Exclude>
+						[MarcasAutosApi..Migrations.]*
+						[MarcasAutosApi..Entities.]*
+						[MarcasAutosApi..Dtos.]*
+						[MarcasAutosApi..Repositories.]*
+						[MarcasAutosApi..Data.]*
+						[MarcasAutosApi.Program]*
+					</Exclude>
+					<ExcludeByFile>
+						*/Migrations/.cs
+						*/Entities/.cs
+						*/Dtos/.cs
+						*/Repositories/.cs
+						*/Data/.cs
+						**/Program.cs
+					</ExcludeByFile>
+					<ExcludeByAttribute>
+						ExcludeFromCodeCoverageAttribute
+					</ExcludeByAttribute>
+				</Configuration>
+			</DataCollector>
+		</DataCollectors>
+	</DataCollectionRunSettings>
 </RunSettings>

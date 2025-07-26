@@ -14,6 +14,7 @@
 	<Threshold>80</Threshold>
 	<ThresholdType>line</ThresholdType>
 	<ThresholdStat>total</ThresholdStat>
+	<ExcludeByFile>*/Migrations/.cs;*/Entities/.cs;*/Dtos/.cs;*/Repositories/.cs;*/Data/.cs;**/Program.cs</ExcludeByFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <Exclude>[MarcasAutosApi.Migrations.];[MarcasAutosApi.Entities.];[MarcasAutosApi.Dtos.];[MarcasAutosApi.Repositories.];[MarcasAutosApi.Data.];[MarcasAutosApi.Program]*</Exclude>
+    <ExcludeByFile>*/Migrations/.cs;*/Entities/.cs;*/Dtos/.cs;*/Repositories/.cs;*/Data/.cs;**/Program.cs</ExcludeByFile>
+    <ExcludeByAttribute>ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
+  </PropertyGroup>
+</Project>

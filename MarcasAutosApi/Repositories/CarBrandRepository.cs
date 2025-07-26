@@ -2,7 +2,6 @@
 using MarcasAutosApi.Entities;
 using MarcasAutosApi.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.CodeAnalysis;
 namespace MarcasAutosApi.Repositories
 {
 
